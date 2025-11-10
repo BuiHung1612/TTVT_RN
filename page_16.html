@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chiến lược Kiểm thử</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .pyramid-level {
+        position: relative;
+        margin: 0 auto;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+      .test-item {
+        transition: all 0.3s ease;
+      }
+      .test-item:hover {
+        transform: translateX(5px);
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex h-screen flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Chiến lược Kiểm thử</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8 pb-5 pt-4">
+        <!-- Left Column - Pyramid Visualization -->
+        <div class="w-1/2 flex flex-col items-center justify-center">
+          <p class="text text-white mb-4">
+            Chiến lược kiểm thử hiệu quả cho React Native, sử dụng các công cụ
+            phù hợp cho từng tầng kiểm thử để đảm bảo chất lượng ứng dụng.
+          </p>
+          <div class="w-full h-full flex flex-col items-center justify-center">
+            <!-- End-to-End Tests -->
+            <div
+              class="pyramid-level bg-red-500 bg-opacity-70 w-1/4 py-3 text-center mb-2"
+            >
+              <span class="text-white font-bold"
+                >E2E Tests (Appium/Maestro)</span
+              >
+            </div>
+            <!-- Integration Tests -->
+            <div
+              class="pyramid-level bg-yellow-500 bg-opacity-70 w-1/2 py-3 text-center mb-2"
+            >
+              <span class="text-white font-bold"
+                >Integration Tests (Detox)</span
+              >
+            </div>
+            <!-- Component Tests -->
+            <div
+              class="pyramid-level bg-green-500 bg-opacity-70 w-3/4 py-3 text-center mb-2"
+            >
+              <span class="text-white font-bold">Component Tests (RTL)</span>
+            </div>
+            <!-- Unit Tests -->
+            <div
+              class="pyramid-level bg-blue-500 bg-opacity-70 w-full py-3 text-center"
+            >
+              <span class="text-white font-bold">Unit Tests (Jest + RTL)</span>
+            </div>
+            <div class="mt-6 text-center text-white">
+              <p class="text-lg">Mô hình Kim tự tháp Kiểm thử</p>
+              <p class="text-sm mt-2">
+                Phân bổ các loại kiểm thử khác nhau theo tỷ lệ thích hợp
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column - Test Types Explanation -->
+        <div class="w-1/2 pl-8">
+          <div class="space-y-3 mt-2">
+            <div
+              class="test-item flex items-start p-3 bg-white bg-opacity-10 rounded-lg"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-cube text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-medium text-white">
+                  Unit Tests (Jest + RTL)
+                </h3>
+                <p class="text-white text-opacity-90">
+                  <strong>Jest</strong> cho logic, hooks và utils.
+                  <strong>React Native Testing Library</strong> cho component
+                  testing. Kiểm tra functions, custom hooks và component
+                  behaviors cô lập.
+                </p>
+              </div>
+            </div>
+            <div
+              class="test-item flex items-start p-3 bg-white bg-opacity-10 rounded-lg"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-puzzle-piece text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-medium text-white">
+                  Component Tests (RTL)
+                </h3>
+                <p class="text-white text-opacity-90">
+                  Sử dụng <strong>React Native Testing Library</strong> để test
+                  UI components. Kiểm tra rendering, user interactions, props và
+                  state changes một cách isolated.
+                </p>
+              </div>
+            </div>
+            <div
+              class="test-item flex items-start p-3 bg-white bg-opacity-10 rounded-lg"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-network-wired text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-medium text-white">
+                  Integration Tests (Detox)
+                </h3>
+                <p class="text-white text-opacity-90">
+                  <strong>Detox</strong> framework để test tương tác giữa các
+                  screens, navigation, API calls và complex user flows. Chạy
+                  trên simulator/emulator thực tế.
+                </p>
+              </div>
+            </div>
+            <div
+              class="test-item flex items-start p-3 bg-white bg-opacity-10 rounded-lg"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-mobile-alt text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-medium text-white">
+                  End-to-End Tests (Appium/Maestro)
+                </h3>
+                <p class="text-white text-opacity-90">
+                  <strong>Appium</strong> hoặc <strong>Maestro</strong> cho E2E
+                  testing trên device thật. Test complete user journeys,
+                  critical business flows và performance trên production builds.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">17/22</div>
+      </div>
+    </div>
+  </body>
+</html>

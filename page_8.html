@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lựa chọn Workflow: Expo vs Bare</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .comparison-item {
+        transition: all 0.3s ease;
+      }
+      .comparison-item:hover {
+        transform: translateY(-5px);
+      }
+      .ex {
+        border-left: 4px solid #4caf50;
+      }
+      .bare {
+        border-left: 4px solid #ff9800;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">
+          Lựa chọn Workflow: Expo vs Bare
+        </h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8">
+        <div class="w-full">
+          <!-- Comparison Table -->
+          <div class="flex">
+            <!-- Left Column - Criteria -->
+            <div class="w-1/4 pr-4">
+              <div class="bg-white bg-opacity-20 rounded-lg p-4 mb-4">
+                <h3 class="text-xl font-bold text-white text-center mb-2">
+                  Tiêu chí
+                </h3>
+              </div>
+              <div
+                class="bg-white bg-opacity-20 rounded-lg p-4 mb-4 comparison-item"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-cogs text-white mr-3 text-xl"></i>
+                  <span class="text-xl font-medium text-white"
+                    >Cài đặt &amp; Trải nghiệm Dev</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white bg-opacity-20 rounded-lg p-4 mb-4 comparison-item"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-book-open text-white mr-3 text-xl"></i>
+                  <span class="text-xl font-medium text-white"
+                    >Thư viện &amp; API</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white bg-opacity-20 rounded-lg p-4 mb-4 comparison-item"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-rocket text-white mr-3 text-xl"></i>
+                  <span class="text-xl font-medium text-white"
+                    >Build &amp; Release</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white bg-opacity-20 rounded-lg p-4 comparison-item"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-white mr-3 text-xl"></i>
+                  <span class="text-xl font-medium text-white"
+                    >Lựa chọn phù hợp</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Right Column - Comparison -->
+            <div class="w-3/4">
+              <!-- Expo Column -->
+              <div class="bg-white bg-opacity-20 rounded-lg p-4 mb-4">
+                <div class="flex items-center justify-center mb-3">
+                  <div
+                    class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-cube text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-white">Expo</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="col-span-3 mb-2">
+                    <p class="text-white">
+                      <i class="fas fa-angle-right text-green-300 mr-2"></i>
+                      Setup nhanh chóng, trực quan. Expo DevTools tiện lợi. Hot
+                      reloading tức thì.
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-minus-circle text-red-300 mr-2"></i> Thư
+                      viện Expo giới hạn
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-minus-circle text-red-300 mr-2"></i> API
+                      bị ràng buộc bởi Expo
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-minus-circle text-red-300 mr-2"></i> Khó
+                      cập nhật phiên bản mới
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Bare React Native Column -->
+              <div class="bg-white bg-opacity-20 rounded-lg p-4 mb-4">
+                <div class="flex items-center justify-center mb-3">
+                  <div
+                    class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-code text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-white">
+                    Bare React Native
+                  </h3>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="col-span-3 mb-2">
+                    <p class="text-white">
+                      <i class="fas fa-angle-right text-orange-300 mr-2"></i>
+                      Setup phức tạp hơn, tự cấu hình. Cần Xcode &amp; Android
+                      Studio. Cần native module nếu cần tính năng đặc biệt.
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-plus-circle text-green-300 mr-2"></i>
+                      Truy cập trực tiếp native API
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-plus-circle text-green-300 mr-2"></i> Thư
+                      viện npm toàn phần
+                    </p>
+                  </div>
+                  <div class="col-span-1">
+                    <p class="text-white text-sm">
+                      <i class="fas fa-plus-circle text-green-300 mr-2"></i> Cập
+                      nhật phiên bản độc lập
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Bottom Recommendation Section -->
+              <div class="flex space-x-4">
+                <div class="w-1/2 bg-white bg-opacity-20 rounded-lg p-4 ex">
+                  <h4 class="text-xl font-bold text-white mb-2">
+                    <i class="fas fa-thumbs-up text-green-300 mr-2"></i>Expo phù
+                    hợp cho
+                  </h4>
+                  <p class="text-white">
+                    Dành cho người mới bắt đầu. Dự án nhanh chóng, MVP. Đội ngũ
+                    nhỏ, tốc độ phát triển nhanh.
+                  </p>
+                </div>
+                <div class="w-1/2 bg-white bg-opacity-20 rounded-lg p-4 bare">
+                  <h4 class="text-xl font-bold text-white mb-2">
+                    <i class="fas fa-thumbs-up text-orange-300 mr-2"></i>Bare
+                    React Native phù hợp cho
+                  </h4>
+                  <p class="text-white">
+                    Dự án phức tạp, nhiều native module. Đội ngũ experienced
+                    native. Cần tối ưu hiệu năng &amp; control.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">09/22</div>
+      </div>
+    </div>
+  </body>
+</html>

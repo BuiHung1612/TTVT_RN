@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Build và Release</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .pipeline-step {
+        transition: all 0.3s ease;
+      }
+      .pipeline-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .arrow {
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 24px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Build và Release</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-10">
+        <div class="w-full">
+          <p class="text-xl text-white mb-6">
+            Quy trình Build và Release là bước cuối cùng để đưa ứng dụng đến tay
+            người dùng, đòi hỏi sự tự động hóa và quản lý chặt chẽ.
+          </p>
+          <!-- CI/CD Pipeline Visualization -->
+          <div class="flex justify-center mb-8">
+            <div class="relative flex space-x-7">
+              <!-- Step 1: Code Commit -->
+              <div
+                class="pipeline-step bg-white bg-opacity-20 rounded-lg p-4 w-48 h-32 flex flex-col items-center justify-center text-center backdrop-filter backdrop-blur-sm relative"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-2"
+                >
+                  <i class="fas fa-code-branch text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold mb-1">Code Commit</h3>
+                <p class="text-white text-sm">Mã nguồn được cam kết</p>
+                <div class="arrow">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </div>
+              <!-- Step 2: Generate Bundles -->
+              <div
+                class="pipeline-step bg-white bg-opacity-20 rounded-lg p-4 w-48 h-32 flex flex-col items-center justify-center text-center backdrop-filter backdrop-blur-sm relative"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-2"
+                >
+                  <i class="fas fa-cube text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold mb-1">Generate Bundles</h3>
+                <p class="text-white text-sm">
+                  Tạo bundle cho Android &amp; iOS
+                </p>
+                <div class="arrow">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </div>
+              <!-- Step 3: Run Tests -->
+              <div
+                class="pipeline-step bg-white bg-opacity-20 rounded-lg p-4 w-48 h-32 flex flex-col items-center justify-center text-center backdrop-filter backdrop-blur-sm relative"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-2"
+                >
+                  <i class="fas fa-vial text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold mb-1">Run Tests</h3>
+                <p class="text-white text-sm">Kiểm thử tự động</p>
+                <div class="arrow">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </div>
+              <!-- Step 4: Build &amp; Release -->
+              <div
+                class="pipeline-step bg-white bg-opacity-20 rounded-lg p-4 w-48 h-32 flex flex-col items-center justify-center text-center backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-2"
+                >
+                  <i class="fas fa-rocket text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold mb-1">Build &amp; Release</h3>
+                <p class="text-white text-sm">
+                  Triển khai lên cửa hàng ứng dụng
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Key Points -->
+          <div class="grid grid-cols-2 gap-6 mt-4">
+            <div
+              class="bg-white bg-opacity-10 p-5 rounded-lg backdrop-filter backdrop-blur-sm"
+            >
+              <h3 class="text-white text-xl font-bold mb-3 flex items-center">
+                <i class="fas fa-cogs text-orange-400 mr-3"></i>
+                Pipeline Build &amp; Release (CI/CD)
+              </h3>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span
+                    >Tự động hóa các bước từ khi mã được cam kết đến khi ứng
+                    dụng được triển khai</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span
+                    >Generate bundles cho từng nền tảng (Android App Bundle -
+                    .aab và iOS App Archive - .ipa)</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span
+                    >Auto chạy tất cả các bài kiểm thử (unit, component,
+                    E2E)</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-white bg-opacity-10 p-5 rounded-lg backdrop-filter backdrop-blur-sm"
+            >
+              <h3 class="text-white text-xl font-bold mb-3 flex items-center">
+                <i class="fas fa-mobile-alt text-orange-400 mr-3"></i>
+                Build Native Binaries
+              </h3>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span
+                    >Build native binaries trực tiếp từ mã nguồn
+                    JavaScript</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span>Tự quản lý version native cho từng nền tảng</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                  <span>Full control over native code để tối ưu hiệu năng</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">19/22</div>
+      </div>
+    </div>
+  </body>
+</html>

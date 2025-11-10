@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tổng quan về React Native</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #37306a 0%, #9d174d 100%);
+      }
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .philosophy-box {
+        border-left: 5px solid #ff9800;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Tổng quan về React Native</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-10">
+        <div class="w-full">
+          <!-- Introduction -->
+          <div class="mb-8">
+            <p class="text-xl text-white mb-4">
+              React Native là một framework UI mã nguồn mở cho phép phát triển
+              ứng dụng di động native bằng JavaScript và React. Được tạo bởi
+              Meta Platforms, Inc., framework này đã thay đổi cách chúng ta xây
+              dựng ứng dụng đa nền tảng.
+            </p>
+          </div>
+          <!-- Philosophy -->
+          <div class="philosophy-box bg-white bg-opacity-20 p-6 mb-8">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-lightbulb text-yellow-400 text-3xl mr-4"></i>
+              <h2 class="text-2xl font-bold text-white">
+                Triết lý cốt lõi: &#34;Learn once, write anywhere&#34;
+              </h2>
+            </div>
+            <p class="text-xl text-white">
+              React Native nhấn mạnh khả năng tái sử dụng kiến thức và mã nguồn,
+              cho phép các nhà phát triển xây dựng ứng dụng cho cả hai hệ điều
+              hành (iOS và Android) chỉ với một codebase duy nhất.
+            </p>
+          </div>
+          <!-- Key Features -->
+          <div class="grid grid-cols-3 gap-6">
+            <div
+              class="feature-card bg-white bg-opacity-20 p-5 rounded-lg backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-code-branch text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">Mã nguồn mở</h3>
+              </div>
+              <p class="text-white">
+                Dự án mã nguồn mở với cộng đồng lớn, hoạt động mạnh mẽ và liên
+                tục được phát triển bởi Meta.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white bg-opacity-20 p-5 rounded-lg backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-bolt text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">Hiệu năng cao</h3>
+              </div>
+              <p class="text-white">
+                Biên dịch thành component UI native, đảm bảo hiệu năng cao, gần
+                như native, mang lại trải nghiệm mượt mà.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white bg-opacity-20 p-5 rounded-lg backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-sync-alt text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">Hot Reloading</h3>
+              </div>
+              <p class="text-white">
+                Thay đổi mã nguồn và xem kết quả ngay lập tức trên thiết bị hoặc
+                giả lập, tăng tốc độ phát triển.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">05/22</div>
+      </div>
+    </div>
+  </body>
+</html>

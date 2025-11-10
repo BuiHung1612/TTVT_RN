@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quản lý Trạng thái (State Management)</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .rating-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 2px;
+      }
+      .rating-dot.filled {
+        background-color: #ffffff;
+      }
+      .rating-dot.empty {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .comparison-table th {
+        background-color: rgba(255, 255, 255, 0.1);
+        font-weight: bold;
+      }
+      .comparison-table tr:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">
+          Quản lý Trạng thái (State Management)
+        </h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8">
+        <div class="w-full">
+          <p class="text-xl text-white mb-6">
+            So sánh các giải pháp quản lý trạng thái phổ biến trong React
+            Native:
+          </p>
+          <div
+            class="overflow-hidden rounded-lg bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm"
+          >
+            <table class="comparison-table w-full text-white">
+              <thead>
+                <tr>
+                  <th class="w-1/5">Tiêu chí</th>
+                  <th class="w-1/4">
+                    <div class="flex items-center">
+                      <i class="fas fa-shield-alt text-orange-300 mr-2"></i>
+                      <span>Redux Toolkit</span>
+                    </div>
+                  </th>
+                  <th class="w-1/4">
+                    <div class="flex items-center">
+                      <i class="fas fa-wind text-green-300 mr-2"></i>
+                      <span>Zustand</span>
+                    </div>
+                  </th>
+                  <th class="w-1/4">
+                    <div class="flex items-center">
+                      <i class="fas fa-share-alt text-blue-300 mr-2"></i>
+                      <span>React Context API</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-medium">Độ phức tạp</td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot empty"></div>
+                      <span class="ml-2">Trung bình đến cao</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot empty"></div>
+                      <div class="rating-dot empty"></div>
+                      <div class="rating-dot empty"></div>
+                      <span class="ml-2">Thấp</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot empty"></div>
+                      <div class="rating-dot empty"></div>
+                      <span class="ml-2">Thấp đến trung bình</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Hiệu năng</td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <span class="ml-2">Tốt (tối ưu hóa với Immer)</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <span class="ml-2">Rất tốt (nhẹ, ít re-render)</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center">
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot filled"></div>
+                      <div class="rating-dot empty"></div>
+                      <span class="ml-2">Tốt (có thể gây re-render)</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Trường hợp sử dụng</td>
+                  <td>
+                    Ứng dụng lớn, phức tạp, cần quản lý trạng thái toàn cục chặt
+                    chẽ
+                  </td>
+                  <td>
+                    Ứng dụng vừa và nhỏ, hoặc quản lý trạng thái cục bộ/module
+                  </td>
+                  <td>
+                    Quản lý trạng thái chia sẻ đơn giản, không cần logic phức
+                    tạp
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Ưu điểm</td>
+                  <td>Mạnh mẽ, hệ sinh thái lớn, dev tools tốt</td>
+                  <td>Nhẹ, dễ học, dễ sử dụng, hiệu quả</td>
+                  <td>Tích hợp sẵn, không cần thư viện bên thứ ba</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Nhược điểm</td>
+                  <td>Boilerplate nhiều, đường cong học tập</td>
+                  <td>Ít tính năng hơn Redux, cộng đồng nhỏ hơn</td>
+                  <td>Có thể gây re-render, khó quản lý trạng thái phức tạp</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">11/22</div>
+      </div>
+    </div>
+  </body>
+</html>

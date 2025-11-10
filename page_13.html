@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quy ước và Linting</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Fill đúng khung 1280x720 do Reveal scale */
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .code-block {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", monospace;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 6px;
+        padding: 10px 12px;
+        color: #f8f8f2;
+        overflow-x: auto;
+        font-size: 12px; /* nhỏ hơn để không tràn */
+        line-height: 1.5;
+      }
+      .keyword {
+        color: #ff79c6;
+      }
+      .string {
+        color: #f1fa8c;
+      }
+      .comment {
+        color: #a3aed0;
+      }
+      .function {
+        color: #50fa7b;
+      }
+      .variable {
+        color: #8be9fd;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-4 px-12 shadow-md">
+        <h1 class="text-4xl font-bold text-white">Quy ước và Linting</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-4">
+        <div class="w-full">
+          <div class="grid grid-cols-2 gap-8">
+            <!-- Left Column: Naming Conventions -->
+            <div
+              class="bg-white bg-opacity-20 rounded-xl p-3 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-paint-brush text-blue-600 text-2xl"></i>
+                </div>
+                <h2 class="text-1xl font-semibold text-white">
+                  Quy ước đặt tên
+                </h2>
+              </div>
+              <ul class="space-y-4 text-white">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <div>
+                    <span class="font-semibold">PascalCase</span> cho tên file
+                    và component:
+                    <div class="code-block mt-2 text-sm">
+                      <span class="comment">// Tốt</span><br />
+                      <span class="keyword">const</span>
+                      <span class="variable">UserProfileScreen</span> =
+                      <span class="keyword">() =&gt;</span> { ... };<br />
+                      <span class="comment"
+                        >// File: UserProfileScreen.tsx</span
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <div>
+                    <span class="font-semibold">camelCase</span> cho file tiện
+                    ích, hooks, và service:
+                    <div class="code-block mt-2 text-sm">
+                      <span class="comment">// Tốt</span><br />
+                      <span class="keyword">const</span>
+                      <span class="variable">useAuth</span> = () =&gt; { ...
+                      };<br />
+                      <span class="comment">// File: useAuth.ts</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Right Column: Linting Tools -->
+            <div
+              class="bg-white bg-opacity-20 rounded-xl p-3 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-code text-blue-600 text-2xl"></i>
+                </div>
+                <h2 class="text-1xl font-semibold text-white">
+                  Công cụ Linters &amp; Formatters
+                </h2>
+              </div>
+              <div class="space-y-5">
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-tools text-blue-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-medium text-white">ESLint</h3>
+                    <p class="text-white opacity-90">
+                      Phân tích mã tĩnh để xác định vấn đề về chất lượng mã, lỗi
+                      cú pháp và vi phạm quy tắc mã hóa.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-ruler-combined text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-medium text-white">Prettier</h3>
+                    <p class="text-white opacity-90">
+                      Định dạng mã tự động, duy trì phong cách mã hóa nhất quán,
+                      loại bỏ các tranh cãi không cần thiết về định dạng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Example Section -->
+          <div class="mt-6 bg-black bg-opacity-30 rounded-lg p-4">
+            <h3 class="text-white text-lg font-medium mb-2 flex items-center">
+              <i class="fas fa-lightbulb text-yellow-300 mr-2"></i>
+              Ví dụ cấu hình .eslintrc.js
+            </h3>
+            <div class="code-block text-sm">
+              <span class="comment">// .eslintrc.js</span><br />
+              <span class="keyword">module</span>.<span class="variable"
+                >exports</span
+              >
+              = {<br />
+                <span class="property">extends</span>: [<span class="string"
+                >&#39;react-native&#39;</span
+              >],<br />
+                <span class="property">rules</span>: {<br />
+                  <span class="string"
+                >&#39;react-native/no-inline-styles&#39;</span
+              >: <span class="keyword">true</span>,<br />
+                },<br />
+              };
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">14/22</div>
+      </div>
+    </div>
+  </body>
+</html>

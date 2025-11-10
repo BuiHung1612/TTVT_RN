@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <title>Trung tâm viễn thông - DevTalk (React Native)</title>
+
+    <!-- Reveal.js 4.3.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css"
+      id="theme"
+    />
+
+    <style>
+      :root {
+        --r-main-font-size: 36px;
+        --r-main-color: #fff;
+        --r-background-color: #000;
+      }
+      /* Không ép section/iframe 1280x720 nữa; để Reveal scale theo width/height cấu hình */
+      .reveal .slides section {
+        padding: 0;
+      }
+      /* Cho iframe “fill container” để r-stretch hoạt động mượt */
+      iframe.r-stretch {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+      /* (Tùy chọn) bỏ viền khi .reveal được focus lại */
+      .reveal:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- tabindex=0 để khung có thể nhận lại focus -->
+    <div class="reveal" tabindex="0">
+      <div class="slides">
+        <!-- MẪU SLIDE: dùng trực tiếp class r-stretch cho iframe -->
+        <section>
+          <iframe class="r-stretch" src="page_1.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_2.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_3.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_21.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_4.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_5.html" allowfullscreen></iframe>
+        </section>
+
+        <section>
+          <iframe class="r-stretch" src="page_6.html" allowfullscreen></iframe>
+        </section>
+
+        <section>
+          <iframe class="r-stretch" src="page_7.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_24.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_8.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_9.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_10.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_11.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_12.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_13.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_14.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_15.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_16.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_17.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_18.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_19.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_20.html" allowfullscreen></iframe>
+        </section>
+        <section>
+          <iframe class="r-stretch" src="page_23.html" allowfullscreen></iframe>
+        </section>
+
+        <section>
+          <iframe class="r-stretch" src="page_22.html" allowfullscreen></iframe>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+      function applyDynamicScale() {
+        const ratio = window.innerWidth / window.innerHeight;
+        const baseRatio = 16 / 9;
+
+        // Giữ tỉ lệ 16:9 nhưng scale theo kích thước thực tế
+        const width = window.innerWidth * 0.98;
+        const height = width / baseRatio;
+
+        Reveal.configure({
+          width,
+          height:
+            height > window.innerHeight ? window.innerHeight * 0.98 : height,
+        });
+      }
+
+      function initializeReveal() {
+        const ratio = window.innerWidth / window.innerHeight;
+        const baseRatio = 16 / 9;
+
+        const width = window.innerWidth * 0.98;
+        const height = width / baseRatio;
+
+        Reveal.initialize({
+          width,
+          height:
+            height > window.innerHeight ? window.innerHeight * 0.98 : height,
+          margin: 0,
+          controls: true,
+          progress: true,
+          center: true,
+          transition: "fade",
+          backgroundTransition: "fade",
+        });
+      }
+
+      initializeReveal();
+      window.addEventListener("resize", applyDynamicScale);
+
+      // Luôn đảm bảo khung Reveal có thể nhận phím
+      Reveal.on("slidechanged", () => {
+        document.activeElement?.blur?.();
+
+        document.querySelector(".reveal")?.focus?.();
+        setTimeout(() => {
+          applyDynamicScale();
+        }, 50);
+      });
+
+      // Bắt phím toàn cục: nếu đang focus trong <iframe>, điều hướng slide thay vì gửi vào iframe
+      window.addEventListener(
+        "keydown",
+        (e) => {
+          const ae = document.activeElement;
+          if (ae && ae.tagName === "IFRAME") {
+            const key = e.key;
+            if (
+              key === "ArrowRight" ||
+              key === "PageDown" ||
+              (key === " " && !e.shiftKey)
+            ) {
+              e.preventDefault();
+              Reveal.next();
+            } else if (
+              key === "ArrowLeft" ||
+              key === "PageUp" ||
+              (key === " " && e.shiftKey)
+            ) {
+              e.preventDefault();
+              Reveal.prev();
+            }
+          }
+        },
+        true
+      );
+
+      // Phím F để fullscreen
+      document.addEventListener("keydown", (e) => {
+        if (e.key.toLowerCase() === "f") {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+            applyDynamicScale();
+          } else {
+            document.exitFullscreen();
+            applyDynamicScale();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

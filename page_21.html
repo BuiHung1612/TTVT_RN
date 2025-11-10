@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>So sánh React Native và Native</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .comparison-row:nth-child(odd) {
+        /* background-color: rgba(255, 255, 255, 0.05); */
+      }
+      .comparison-row:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .rating-bar {
+        height: 8px;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      .rating-fill {
+        height: 100%;
+        border-radius: 4px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">
+          So sánh React Native và Native
+        </h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8">
+        <div
+          class="w-full bg-white bg-opacity-20 rounded-xl backdrop-filter backdrop-blur-sm p-6"
+        >
+          <div class="grid grid-cols-3 gap-4 mb-4 text-white font-bold">
+            <div class="col-span-1 text-xl">Tiêu chí</div>
+            <div class="col-span-1 text-xl text-center">React Native</div>
+            <div class="col-span-1 text-xl text-center">
+              Native (Swift/Kotlin)
+            </div>
+          </div>
+          <!-- Comparison Rows -->
+          <div class="comparison-row grid grid-cols-3 gap-4 py-4 text-white">
+            <div class="col-span-1 flex items-center">
+              <i class="fas fa-tachometer-alt mr-3 text-yellow-300"></i>
+              <span class="font-medium">Tốc độ phát triển</span>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Nhanh hơn</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-400" style="width: 85%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Nhờ khả năng tái sử dụng mã nguồn và tính năng hot reloading
+              </p>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Chậm hơn</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-red-400" style="width: 40%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Yêu cầu duy trì các codebase riêng biệt cho từng nền tảng
+              </p>
+            </div>
+          </div>
+          <div class="comparison-row grid grid-cols-3 gap-4 py-4 text-white">
+            <div class="col-span-1 flex items-center">
+              <i class="fas fa-bolt mr-3 text-yellow-300"></i>
+              <span class="font-medium">Hiệu năng</span>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Tốt</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-400" style="width: 75%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Tuy nhiên có thể thấp hơn đối với các animation phức tạp
+              </p>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Tối ưu</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-500" style="width: 100%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Truy cập trực tiếp vào các API của nền tảng
+              </p>
+            </div>
+          </div>
+          <div class="comparison-row grid grid-cols-3 gap-4 py-4 text-white">
+            <div class="col-span-1 flex items-center">
+              <i class="fas fa-code-branch mr-3 text-yellow-300"></i>
+              <span class="font-medium">Tái sử dụng mã nguồn</span>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Cao (90-95%)</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-500" style="width: 92%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Giúp tiết kiệm thời gian và chi phí
+              </p>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Tối thiểu</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-red-500" style="width: 20%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Yêu cầu các codebase riêng biệt
+              </p>
+            </div>
+          </div>
+          <div class="comparison-row grid grid-cols-3 gap-4 py-4 text-white">
+            <div class="col-span-1 flex items-center">
+              <i class="fas fa-puzzle-piece mr-3 text-yellow-300"></i>
+              <span class="font-medium">Hệ sinh thái</span>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Phong phú</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-500" style="width: 88%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                JavaScript/React với cộng đồng lớn mạnh
+              </p>
+            </div>
+            <div class="col-span-1">
+              <div class="text-center mb-2">Trưởng thành</div>
+              <div class="rating-bar">
+                <div class="rating-fill bg-green-400" style="width: 70%"></div>
+              </div>
+              <p class="text-sm mt-2 text-gray-100">
+                Chuyên biệt cho từng nền tảng
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">04/22</div>
+      </div>
+    </div>
+  </body>
+</html>

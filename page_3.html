@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chân dung Mobile Dev hiện đại</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #37306a 0%, #9d174d 100%);
+      }
+      .skill-card {
+        transition: all 0.3s ease;
+      }
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">
+          Chân dung Mobile Dev hiện đại
+        </h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex-1 p-10">
+        <div
+          class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-xl p-6 mb-8"
+        >
+          <p class="text-xl text-white">
+            Vai trò của nhà phát triển di động ngày nay đã có sự thay đổi đáng
+            kể, không còn giới hạn trong việc chuyên sâu vào một nền tảng cụ
+            thể. Sự xuất hiện của các framework đa nền tảng như React Native đã
+            mở ra những cơ hội mới, cho phép các nhà phát triển tạo ra ứng dụng
+            hiệu quả hơn.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="skill-card bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center"
+          >
+            <div class="icon-circle bg-white">
+              <i class="fas fa-code-branch text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Nhà phát triển đa năng
+            </h3>
+            <p class="text-white">
+              Không chỉ là chuyên gia về iOS hay Android mà còn là kỹ sư đa
+              năng, có khả năng làm việc với các framework cross-platform như
+              React Native.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="skill-card bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center"
+          >
+            <div class="icon-circle bg-white">
+              <i class="fas fa-code text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Một codebase, hai nền tảng
+            </h3>
+            <p class="text-white">
+              Sự chuyển dịch này mang lại giá trị to lớn, cho phép các nhà phát
+              triển xây dựng ứng dụng cho cả hai hệ điều hành chỉ với một
+              codebase duy nhất.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="skill-card bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-xl p-6 flex flex-col items-center text-center"
+          >
+            <div class="icon-circle bg-white">
+              <i class="fas fa-chart-line text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Tối ưu hóa thời gian và chi phí
+            </h3>
+            <p class="text-white">
+              Kiến thức rộng hơn về kiến trúc ứng dụng, quản lý trạng thái, hiệu
+              năng và bảo mật trên nhiều môi trường khác nhau giúp tối ưu hóa
+              thời gian và chi phí phát triển.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">03/22</div>
+      </div>
+    </div>
+  </body>
+</html>

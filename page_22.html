@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cảm ơn &amp; Hỏi đáp</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .contact-item {
+        transition: all 0.3s ease;
+      }
+      .contact-item:hover {
+        transform: translateY(-5px);
+      }
+      .thank-you-text {
+        background: linear-gradient(to right, #ff9966, #66cccc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg flex h-screen flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Cảm ơn &amp; Hỏi đáp</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1">
+        <div class="w-full flex flex-col items-center pt-10">
+          <!-- Thank you message -->
+          <h2 class="thank-you-text text-5xl font-bold mb-6 text-center">
+            Cảm ơn quý vị đã tham dự!
+          </h2>
+          <p class="text-xl text-white mb-10 text-center max-w-3xl">
+            Chúng tôi hy vọng buổi thuyết trình đã mang lại những thông tin hữu
+            ích về React Native.
+          </p>
+          <!-- Divider with icon -->
+          <div class="flex items-center justify-center w-full mb-10">
+            <div class="h-0.5 bg-white bg-opacity-30 w-1/3"></div>
+            <div class="mx-4 text-white">
+              <i class="fas fa-comments text-3xl"></i>
+            </div>
+            <div class="h-0.5 bg-white bg-opacity-30 w-1/3"></div>
+          </div>
+          <!-- Contact information -->
+          <!-- Q&amp;A invitation -->
+          <div
+            class="bg-white bg-opacity-20 rounded-lg p-6 max-w-3xl text-center backdrop-filter backdrop-blur-sm"
+          >
+            <div class="flex justify-center mb-4">
+              <div
+                class="w-16 h-16 rounded-full bg-white flex items-center justify-center"
+              >
+                <i class="fas fa-question-circle text-blue-600 text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-2">
+              Bắt đầu câu hỏi của bạn
+            </h3>
+            <p class="text-white">
+              Bây giờ là thời gian dành cho phần hỏi đáp, nơi chúng tôi sẽ giải
+              đáp mọi thắc mắc của bạn về React Native.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">22/22</div>
+      </div>
+    </div>
+  </body>
+</html>

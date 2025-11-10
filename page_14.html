@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Công cụ phát triển</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .tool-card {
+        transition: all 0.3s ease;
+      }
+      .tool-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Công cụ phát triển</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-10">
+        <div class="w-full">
+          <div class="mb-8">
+            <h2 class="text-2xl text-white font-semibold mb-4">
+              Visual Studio Code
+            </h2>
+            <p class="text-xl text-white">
+              IDE được khuyến nghị và sử dụng rộng rãi nhất trong cộng đồng phát
+              triển React Native nhờ vào tính linh hoạt, hiệu suất cao và hệ
+              sinh thái extension phong phú.
+            </p>
+          </div>
+          <div class="grid grid-cols-3 gap-6">
+            <!-- ESLint Extension -->
+            <div
+              class="tool-card bg-white bg-opacity-20 rounded-xl p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-tools text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">ESLint</h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Tích hợp trực tiếp vào IDE</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span
+                    >Hiển thị cảnh báo và lỗi mã hóa theo thời gian thực</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Giúp nhà phát triển sửa lỗi ngay lập tức</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Prettier Extension -->
+            <div
+              class="tool-card bg-white bg-opacity-20 rounded-xl p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-ruler-combined text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Prettier</h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Tự động định dạng mã khi lưu file</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Đảm bảo mã luôn sạch sẽ và tuân thủ quy ước</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span
+                    >Loại bỏ các tranh cãi không cần thiết về định dạng</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- React Native Tools Extension -->
+            <div
+              class="tool-card bg-white bg-opacity-20 rounded-xl p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-tools text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">React Native Tools</h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Cung cấp khả năng gỡ lỗi (debugging)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>IntelliSense (gợi ý mã thông minh)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                  <span>Các lệnh tiện ích cho React Native</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">15/22</div>
+      </div>
+    </div>
+  </body>
+</html>

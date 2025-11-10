@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tối ưu Bảo mật</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .security-item {
+        transition: all 0.3s ease;
+      }
+      .security-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Tối ưu Bảo mật</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-10">
+        <div class="w-full">
+          <p class="text-xl text-white mb-4">
+            Bảo mật là yếu tố tối quan trọng trong phát triển ứng dụng di động.
+            Dưới đây là các chiến lược bảo mật chính cần được áp dụng:
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="space-y-3">
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-database text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Lưu trữ dữ liệu an toàn
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Sử dụng các cơ chế lưu trữ an toàn của hệ điều hành như
+                    Keychain cho iOS và Keystore cho Android thay vì lưu trữ dữ
+                    liệu nhạy cảm dưới dạng văn bản thuần.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-key text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Bảo vệ API Key
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Tránh hardcode các khóa API trực tiếp trong mã nguồn. Sử
+                    dụng các biến môi trường hoặc các dịch vụ quản lý bí mật để
+                    lưu trữ và truy cập các khóa này một cách an toàn.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-link text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Chống khai thác Deep Link
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Thực hiện xác thực kỹ lưỡng cho các tham số của deep link để
+                    ngăn chặn việc bị thao túng hoặc tấn công thông qua các liên
+                    kết độc hại.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Right Column -->
+            <div class="space-y-3">
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-code text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Làm rối mã (Code Obfuscation)
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Áp dụng các kỹ thuật làm rối mã để làm cho mã nguồn khó bị
+                    dịch ngược hơn, gây khó khăn cho kẻ tấn công trong việc phân
+                    tích và khai thác lỗ hổng.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Bảo mật mạng
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Luôn sử dụng giao thức HTTPS để mã hóa dữ liệu truyền qua
+                    mạng. Triển khai certificate pinning để ngăn chặn các cuộc
+                    tấn công Man-in-the-Middle bằng cách đảm bảo ứng dụng chỉ
+                    giao tiếp với các máy chủ có chứng chỉ đã được xác thực.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="security-item flex items-start p-4 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-sm"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-user-shield text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white mb-1">
+                    Bảo vệ khỏi các mối đe dọa
+                  </h3>
+                  <p class="text-white text-opacity-90">
+                    Thực hiện các biện pháp bảo vệ bổ sung như kiểm tra chữ ký
+                    ứng dụng, ngăn chặn việc screenshot ảnh màn hình, và bảo vệ
+                    khỏi việc debug mã nguồn.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">20/22</div>
+      </div>
+    </div>
+  </body>
+</html>

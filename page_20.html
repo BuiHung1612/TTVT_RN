@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tối ưu Hiệu năng</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .performance-card {
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+      .performance-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      code {
+        font-family: monospace;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 2px 6px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col h-screen">
+    <div
+      class="slide gradient-bg flex flex-1 flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Tối ưu Hiệu năng</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 flex-col p-8 overflow-hidden">
+        <div class="text-white text-xl mb-6">
+          Hiệu năng là yếu tố then chốt quyết định trải nghiệm người dùng. Dưới
+          đây là các kỹ thuật tối ưu hóa phổ biến:
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Avoid unnecessary re-renders -->
+          <div class="performance-card bg-white bg-opacity-20 rounded-lg p-5">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-sync-alt text-blue-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                Tránh re-render không cần thiết
+              </h3>
+            </div>
+            <ul class="text-white space-y-2 ml-2">
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>React.memo</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>useCallback</code> và <code>useMemo</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Tối ưu
+                <code>useEffect</code> dependencies
+              </li>
+            </ul>
+          </div>
+
+          <!-- Optimize Lists -->
+          <div class="performance-card bg-white bg-opacity-20 rounded-lg p-5">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-list text-green-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                Tối ưu hiển thị danh sách
+              </h3>
+            </div>
+            <ul class="text-white space-y-2 ml-2">
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>FlatList</code> thay vì <code>ScrollView</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Implement
+                <code>getItemLayout</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>keyExtractor</code> hiệu quả
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image Optimization -->
+          <div class="performance-card bg-white bg-opacity-20 rounded-lg p-5">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-image text-purple-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Tối ưu hình ảnh</h3>
+            </div>
+            <ul class="text-white space-y-2 ml-2">
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Resize ảnh phù
+                hợp với
+                <code>resizeMode</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>react-native-turbo-image</code>
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Lazy loading
+                với
+                <code>onLoad</code>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Bundle Optimization -->
+          <div class="performance-card bg-white bg-opacity-20 rounded-lg p-5">
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-box text-orange-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Tối ưu Bundle size</h3>
+            </div>
+            <ul class="text-white space-y-2 ml-2">
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Sử dụng
+                <code>Flipper</code> để phân tích bundle
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Tree shaking và
+                <code>import</code> chọn lọc
+              </li>
+              <li>
+                <i class="fas fa-check text-green-300 mr-2"></i> Code splitting
+                với
+                <code>React.lazy</code>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">21/22</div>
+      </div>
+    </div>
+  </body>
+</html>

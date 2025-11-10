@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tự học React Native — Tài liệu & Lộ trình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Theme & effects (khớp slide trước) */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+      .card {
+        border-radius: 16px;
+        padding: 16px;
+        color: #fff;
+        transition: 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+      .chip {
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 9999px;
+        padding: 6px 12px;
+        display: inline-block;
+      }
+      .link {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+      }
+      .link:hover {
+        opacity: 0.9;
+      }
+      .fade {
+        opacity: 0;
+        transform: translateY(14px);
+        animation: fadeUp 0.7s ease forwards;
+      }
+      .fade:nth-child(2) {
+        animation-delay: 0.06s;
+      }
+      .fade:nth-child(3) {
+        animation-delay: 0.12s;
+      }
+      .fade:nth-child(4) {
+        animation-delay: 0.18s;
+      }
+      .fade:nth-child(5) {
+        animation-delay: 0.24s;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide gradient-bg h-screen flex flex-col">
+      <!-- Header -->
+      <div class="py-7 px-8 md:px-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow">
+          Tự học React Native — Website tài liệu
+        </h1>
+        <p class="text-white/90 mt-2 text-lg max-w-3xl">
+          Danh mục link chính thống & lộ trình gợi ý cho người mới.
+        </p>
+      </div>
+
+      <!-- Grid resources -->
+      <div class="flex-1 px-8 md:px-12 pb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Bắt đầu -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">Bắt đầu</h2>
+              <span class="chip">Fundamentals</span>
+            </div>
+            <ul class="space-y-2 text-white/95">
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://reactnative.dev/docs/environment-setup"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Native Docs (Setup)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://react.dev/learn"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Docs — Learn</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://docs.expo.dev/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Expo Docs (nhanh cho người mới)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://www.typescriptlang.org/docs/handbook/intro.html"
+                  target="_blank"
+                  rel="noreferrer"
+                  >TypeScript Handbook (Intro)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Giao diện & điều hướng -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">Giao diện & Điều hướng</h2>
+              <span class="chip">UI & Nav</span>
+            </div>
+            <ul class="space-y-2 text-white/95">
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://reactnavigation.org/docs/getting-started"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Navigation</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://docs.swmansion.com/react-native-gesture-handler/docs/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Gesture Handler</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://docs.swmansion.com/react-native-reanimated/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Reanimated</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://callstack.github.io/react-native-paper/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Native Paper (UI Kit)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- State & Data -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">State & Dữ liệu</h2>
+              <span class="chip">Data</span>
+            </div>
+            <ul class="space-y-2 text-white/95">
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Redux Essentials</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://zustand.docs.pmnd.rs/getting-started/introduction"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Zustand</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://tanstack.com/query/latest"
+                  target="_blank"
+                  rel="noreferrer"
+                  >TanStack Query (data fetching)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://react-hook-form.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Hook Form</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Build & Debug -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">Build & Debug</h2>
+              <span class="chip">Tooling</span>
+            </div>
+            <ul class="space-y-2 text-white/95">
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://fbflipper.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Flipper (debug RN)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://docs.infinite.red/reactotron/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Reactotron (debug RN)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://docs.expo.dev/eas/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Expo EAS (Build/Submit)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://fastlane.tools/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Fastlane (CI/CD mobile)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kiểm thử -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">Kiểm thử</h2>
+              <span class="chip">Testing</span>
+            </div>
+            <ul class="space-y-2 text-white/95">
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://testing-library.com/docs/react-native-testing-library/intro/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >React Native Testing Library</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://wix.github.io/Detox/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Detox (E2E)</a
+                >
+              </li>
+              <li>
+                •
+                <a
+                  class="link"
+                  href="https://jestjs.io/docs/getting-started"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Jest</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lộ trình gợi ý -->
+          <div class="glass card fade">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl font-bold">Lộ trình 4 tuần (gợi ý)</h2>
+              <span class="chip">Roadmap</span>
+            </div>
+            <ol class="list-decimal list-inside space-y-1 text-white/95">
+              <li>Tuần 1: React cơ bản + RN Setup (Expo)</li>
+              <li>Tuần 2: UI, Navigation, Gesture</li>
+              <li>Tuần 3: State, API, Form</li>
+              <li>Tuần 4: Testing, Debug, Build</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <span class="text-white text-sm">Self-Learning Resources</span>
+      </div>
+    </div>
+  </body>
+</html>

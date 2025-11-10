@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quy trình làm việc</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* margin: 0;
+        padding: 0; */
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      /* Thay đổi gradient nền để khớp với page_1 */
+      .gradient-bg-custom {
+        background: linear-gradient(
+          to bottom right,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        ); /* Màu tương đương: indigo-900 -> purple-900 -> pink-800 */
+      }
+      .process-card {
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.1); /* Nền mờ/Glass effect */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+      }
+      .process-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        border-bottom: 4px solid #f97316; /* Màu cam khi hover */
+      }
+      .workflow-container {
+        height: 162px;
+        background-color: rgba(255, 255, 255, 0.1); /* Nền mờ */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg-custom h-screen flex flex-1 flex-col"
+      style="overflow: hidden"
+    >
+      <div class="py-6 px-12 shadow-md bg-black bg-opacity-30">
+        <h1 class="text-5xl font-bold text-white">Quy trình làm việc</h1>
+        <div class="w-16 h-1 bg-orange-500 mt-2"></div>
+      </div>
+      <div class="flex-1 p-6">
+        <p class="text-xl text-white mb-4">
+          Một quy trình làm việc Agile hiệu quả giúp đội nhóm phát triển nhanh
+          chóng, linh hoạt và duy trì chất lượng sản phẩm.
+        </p>
+        <div class="workflow-container rounded-lg p-2 mb-4" id="workflow"></div>
+        <div class="grid grid-cols-3 gap-6">
+          <div class="process-card rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-code-branch text-white text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-white">
+                Feature Branching
+              </h3>
+            </div>
+            <ul class="text-white space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Sử dụng Git để tạo các nhánh riêng biệt cho từng tính năng
+                  mới</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span>Cô lập các thay đổi, tránh xung đột mã nguồn chính</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span>Cho phép nhiều nhà phát triển làm việc song song</span>
+              </li>
+            </ul>
+          </div>
+          <div class="process-card rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-vial text-white text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-white">
+                Component Development &amp; Testing
+              </h3>
+            </div>
+            <ul class="text-white space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Phát triển các thành phần UI và logic kinh doanh theo từng
+                  module nhỏ</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Viết unit tests và component tests song song với mã
+                  nguồn</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Đảm bảo chức năng hoạt động đúng và ngăn ngừa lỗi phát
+                  sinh</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="process-card rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-code text-white text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-white">
+                Code Review qua Pull Requests
+              </h3>
+            </div>
+            <ul class="text-white space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Sau khi hoàn thành một tính năng, mã nguồn được gửi đi để
+                  đánh giá</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span
+                  >Quá trình này đảm bảo chất lượng mã và tuân thủ các quy
+                  ước</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-green-400"></i>
+                <span>Phát hiện lỗi trước khi hợp nhất vào nhánh chính</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="py-3 mt-2 px-12 flex justify-between items-center bg-black bg-opacity-30"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">18/22</div>
+      </div>
+    </div>
+    <script>
+      // BỎ đoạn DOMContentLoaded cũ, thay bằng:
+      (function () {
+        function render() {
+          const host = document.getElementById("workflow");
+          // Xóa SVG cũ nếu có
+          d3.select(host).selectAll("svg").remove();
+
+          // fallback width
+          let width =
+            host.clientWidth ||
+            host.getBoundingClientRect().width ||
+            window.innerWidth;
+          const height = host.clientHeight || 162;
+
+          if (!width || width < 200) width = 600; // đảm bảo có width tối thiểu
+
+          const svg = d3
+            .select(host)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+          const steps = [
+            { id: 1, name: "Feature Branching", icon: "fa-code-branch" },
+            { id: 2, name: "Component Development", icon: "fa-code" },
+            { id: 3, name: "Testing", icon: "fa-vial" },
+            { id: 4, name: "Code Review", icon: "fa-code-pull-request" },
+            { id: 5, name: "Merge", icon: "fa-code-merge" },
+          ];
+
+          const stepWidth = width / steps.length;
+          const centerY = height / 2;
+
+          svg
+            .append("defs")
+            .append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#F97316");
+
+          for (let i = 0; i < steps.length - 1; i++) {
+            svg
+              .append("line")
+              .attr("x1", (i + 0.5) * stepWidth + 25)
+              .attr("y1", centerY)
+              .attr("x2", (i + 1.5) * stepWidth - 25)
+              .attr("y2", centerY)
+              .attr("stroke", "#F97316")
+              .attr("stroke-width", 2)
+              .attr("stroke-dasharray", "5,5")
+              .attr("marker-end", "url(#arrowhead)");
+          }
+
+          const stepGroups = svg
+            .selectAll(".step")
+            .data(steps)
+            .enter()
+            .append("g")
+            .attr("class", "step")
+            .attr(
+              "transform",
+              (d, i) => `translate(${(i + 0.5) * stepWidth}, ${centerY})`
+            );
+
+          stepGroups
+            .append("circle")
+            .attr("r", 25)
+            .attr("fill", "white")
+            .attr("stroke", "#F97316")
+            .attr("stroke-width", 2);
+
+          // === dùng foreignObject để hiển thị icon Font Awesome ===
+          (function addIconNodes() {
+            const classMap = {
+              "fa-code-branch": "fa-code-branch",
+              "fa-code": "fa-code",
+              "fa-vial": "fa-vial",
+              "fa-code-pull-request": "fa-code-pull-request",
+              "fa-code-merge": "fa-code-merge",
+            };
+            stepGroups
+              .append("foreignObject")
+              .attr("x", -16)
+              .attr("y", -16)
+              .attr("width", 32)
+              .attr("height", 32)
+              .append("xhtml:i")
+              .attr(
+                "class",
+                (d) => `fa-solid ${classMap[d.icon] || "fa-circle"}`
+              )
+              .style("font-size", "24px")
+              .style("line-height", "32px")
+              .style("color", "#37306A")
+              .style("display", "flex")
+              .style("align-items", "center")
+              .style("justify-content", "center");
+          })();
+
+          stepGroups
+            .append("text")
+            .attr("text-anchor", "middle")
+            .attr("dy", 45)
+            .attr("fill", "white")
+            .attr("font-size", "14px")
+            .attr("font-weight", "bold")
+            .text((d) => d.name);
+        }
+
+        // Đợi mọi resource (CSS/fonts) load xong để tránh width=0
+        window.addEventListener("load", () => {
+          // vẽ ngay
+          render();
+          // re-render khi thay đổi kích thước
+          window.addEventListener("resize", render, { passive: true });
+        });
+      })();
+    </script>
+  </body>
+</html>

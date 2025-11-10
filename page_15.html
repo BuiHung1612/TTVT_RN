@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gỡ lỗi (Debugging)</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #9d174d 0%,
+          #37306a 50%,
+          #5b21b6 100%
+        );
+      }
+      .debug-tool-card {
+        transition: all 0.3s ease;
+        border-left: 4px solid transparent;
+      }
+      .debug-tool-card:hover {
+        transform: translateX(5px);
+        border-left-color: #ffffff;
+      }
+      .icon-container {
+        width: 60px;
+        height: 60px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+
+      /* Reactotron badge */
+      .reactotron-badge {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 13px;
+      }
+
+      /* small code block style */
+      .code-inline {
+        background: rgba(0, 0, 0, 0.55);
+        padding: 8px;
+        border-radius: 8px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", monospace;
+        font-size: 13px;
+        color: #fff;
+        display: block;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Gỡ lỗi (Debugging)</h1>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8">
+        <div class="w-full">
+          <p class="text-xl text-white mb-6">
+            Gỡ lỗi là một phần không thể thiếu trong quá trình phát triển ứng
+            dụng. Các công cụ hiện đại giúp việc này trở nên dễ dàng và hiệu quả
+            hơn.
+          </p>
+
+          <!-- Grid: now includes Reactotron -->
+          <div class="grid grid-cols-4 gap-6">
+            <!-- Flipper -->
+            <div
+              class="debug-tool-card bg-white bg-opacity-20 rounded-lg p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="icon-container rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-bug text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-white">Flipper</h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Một nền tảng gỡ lỗi đa năng cho ứng dụng di động</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Kiểm tra Network: Theo dõi yêu cầu HTTP</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Kiểm tra Layout: Hiển thị cấu trúc UI</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Kiểm tra Performance: Theo dõi CPU, bộ nhớ</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- React DevTools -->
+            <div
+              class="debug-tool-card bg-white bg-opacity-20 rounded-lg p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="icon-container rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-tools text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-white">
+                  React DevTools
+                </h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Một extension trình duyệt cho kiểm tra React</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Kiểm tra cây thành phần React</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Xem và chỉnh sửa trạng thái (state) và props</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Hỗ trợ việc theo dõi luồng hoạt động</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Reactotron (NEW) -->
+            <div
+              class="debug-tool-card bg-white bg-opacity-20 rounded-lg p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="icon-container rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <!-- Reactotron icon (custom simple) -->
+                  <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      fill="#fff"
+                      opacity="0.12"
+                    ></circle>
+                    <path
+                      d="M8 12h8"
+                      stroke="#06b6d4"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    ></path>
+                    <path
+                      d="M8 8h8"
+                      stroke="#a78bfa"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    ></path>
+                    <path
+                      d="M8 16h8"
+                      stroke="#fb7185"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-semibold text-white">Reactotron</h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span
+                    >Inspect state, actions, API calls, and logs in
+                    real-time</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span
+                    >Great for tracking Redux/Rematch or custom state
+                    flows</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span
+                    >Simple to add and very low overhead during
+                    development</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Direct Debugging -->
+            <div
+              class="debug-tool-card bg-white bg-opacity-20 rounded-lg p-6 backdrop-filter backdrop-blur-sm"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="icon-container rounded-full bg-white flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-code text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-white">
+                  Gỡ lỗi trực tiếp
+                </h3>
+              </div>
+              <ul class="text-white space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span
+                    >React Native cho phép gỡ lỗi trực tiếp trong Chrome</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Thông qua extension trong VS Code</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Cung cấp các tính năng breakpoint</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 text-green-300"></i>
+                  <span>Xem biến và thực thi mã từng bước</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Short note on when to use Reactotron -->
+          <div
+            class="mt-6 bg-black bg-opacity-25 rounded-lg p-4 text-white text-sm max-w-4xl"
+          >
+            <strong>Gợi ý:</strong> Dùng <em>Reactotron</em> khi bạn muốn debug
+            state / actions / HTTP request trực tiếp trong môi trường phát
+            triển. Dùng <em>Flipper</em> nếu cần inspect layout, network và
+            performance cùng lúc.
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">16/22</div>
+      </div>
+    </div>
+  </body>
+</html>

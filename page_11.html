@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ví dụ về Zustand</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #37306a 0%,
+          #5b21b6 50%,
+          #9d174d 100%
+        );
+      }
+      .code-block {
+        font-family: "Courier New", monospace;
+        background-color: #1e293b;
+        border-radius: 8px;
+      }
+      .code-line {
+        padding: 4px 16px;
+        display: flex;
+        align-items: center;
+      }
+      .line-number {
+        color: #94a3b8;
+        margin-right: 16px;
+        user-select: none;
+      }
+      .keyword {
+        color: #f472b6;
+      }
+      .string {
+        color: #a3e635;
+      }
+      .function {
+        color: #60a5fa;
+      }
+      .comment {
+        color: #94a3b8;
+        font-style: italic;
+      }
+      .variable {
+        color: #f87171;
+      }
+      .number {
+        color: #fbbf24;
+      }
+      .punctuation {
+        color: #e5e7eb;
+      }
+      .tag {
+        color: #10b981;
+      }
+      .attr {
+        color: #8b5cf6;
+      }
+      .state-example {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+      }
+
+      html {
+        overflow: hidden;
+      }
+    </style>
+    <style>
+      /* conservative scale-up helpers (applies across slides) */
+      html {
+        font-size: 18px;
+        overflow: hidden;
+      }
+      .topic-item {
+        padding: 1.75rem;
+      }
+      .w-12 {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      .text-xl {
+        font-size: 1.5rem;
+        line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide gradient-bg h-screen flex flex-col"
+      style="overflow: hidden"
+    >
+      <!-- Header -->
+      <div class="py-6 px-12 shadow-md">
+        <h1 class="text-5xl font-bold text-white">Ví dụ về Zustand</h1>
+      </div>
+      <!-- Main Content -->
+      <div class="flex flex-1 p-8">
+        <div class="w-full flex flex-col">
+          <!-- Introduction -->
+          <div class="mb-6">
+            <p class="text-xl text-white">
+              Zustand là một giải pháp quản lý trạng thái nhẹ nhàng, hiện đại
+              cho React Native. Dưới đây là ví dụ cơ bản về cách sử dụng Zustand
+              để quản lý trạng thái đếm:
+            </p>
+          </div>
+          <!-- Code Example -->
+          <div class="flex flex-1">
+            <!-- Code Block -->
+            <div class="w-3/5 code-block shadow-lg">
+              <div class="bg-gray-800 py-2 px-4 flex items-center">
+                <i class="fas fa-code text-white mr-2"></i>
+                <span class="text-white font-medium">useCounterStore.js</span>
+              </div>
+              <div class="overflow-y-auto max-h-96">
+                <div class="code-line">
+                  <span class="line-number">1</span>
+                  <span class="comment">// Import Zustand</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">2</span>
+                  <span class="keyword">import</span>
+                  <span class="function mx-1">create</span>
+                  <span class="keyword">from</span>
+                  <span class="string">&#39;zustand&#39;</span
+                  ><span class="punctuation">;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">3</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">4</span>
+                  <span class="comment">// Định nghĩa store</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">5</span>
+                  <span class="keyword">const</span>
+                  <span class="variable mx-1">useCounterStore</span>
+                  <span class="punctuation">=</span>
+                  <span class="function mr-1">create</span
+                  ><span class="punctuation">(</span
+                  ><span class="variable">set</span>
+                  <span class="keyword">=&gt;</span>
+                  <span class="punctuation">({</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">6</span>
+                  <span class="variable">count</span
+                  ><span class="punctuation">:</span>
+                  <span class="number">0</span
+                  ><span class="punctuation">,</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">7</span>
+                  <span class="variable">increment</span
+                  ><span class="punctuation">:</span>
+                  <span class="punctuation">()</span>
+                  <span class="keyword">=&gt;</span>
+                  <span class="function">set</span
+                  ><span class="punctuation">(</span
+                  ><span class="variable">state</span>
+                  <span class="keyword">=&gt;</span>
+                  <span class="punctuation">({</span>
+                  <span class="variable">count</span
+                  ><span class="punctuation">:</span>
+                  <span class="variable">state</span
+                  ><span class="punctuation">.</span
+                  ><span class="variable">count</span>
+                  <span class="punctuation">+</span>
+                  <span class="number">1</span>
+                  <span class="punctuation">})),</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">8</span>
+                  <span class="variable">decrement</span
+                  ><span class="punctuation">:</span>
+                  <span class="punctuation">()</span>
+                  <span class="keyword">=&gt;</span>
+                  <span class="function">set</span
+                  ><span class="punctuation">(</span
+                  ><span class="variable">state</span>
+                  <span class="keyword">=&gt;</span>
+                  <span class="punctuation">({</span>
+                  <span class="variable">count</span
+                  ><span class="punctuation">:</span>
+                  <span class="variable">state</span
+                  ><span class="punctuation">.</span
+                  ><span class="variable">count</span>
+                  <span class="punctuation">-</span>
+                  <span class="number">1</span>
+                  <span class="punctuation">})),</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">9</span>
+                  <span class="punctuation">})</span
+                  ><span class="punctuation">)</span
+                  ><span class="punctuation">;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">10</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">11</span>
+                  <span class="comment">// Sử dụng trong component</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">12</span>
+                  <span class="keyword">function</span>
+                  <span class="function">Counter</span
+                  ><span class="punctuation">()</span>
+                  <span class="punctuation">{</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">13</span>
+                  <span class="keyword">const</span>
+                  <span class="punctuation">{</span>
+                  <span class="variable">count</span
+                  ><span class="punctuation">,</span>
+                  <span class="variable">increment</span
+                  ><span class="punctuation">,</span>
+                  <span class="variable">decrement</span>
+                  <span class="punctuation">}</span>
+                  <span class="punctuation">=</span>
+                  <span class="variable">useCounterStore</span
+                  ><span class="punctuation">()</span
+                  ><span class="punctuation">;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">14</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">15</span>
+                  <span class="keyword">return</span>
+                  <span class="punctuation">(</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">16</span>
+                  <span class="tag">&lt;View&gt;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">17</span>
+                  <span class="tag">&lt;Text&gt;</span
+                  ><span class="string">Count:</span>
+                  <span class="punctuation">{</span
+                  ><span class="variable">count</span
+                  ><span class="punctuation">}</span
+                  ><span class="tag">&lt;/Text&gt;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">18</span>
+                  <span class="tag">&lt;Button</span>
+                  <span class="attr">title</span
+                  ><span class="punctuation">=</span
+                  ><span class="string">&#34;Tăng&#34;</span>
+                  <span class="attr">onPress</span
+                  ><span class="punctuation">=</span
+                  ><span class="punctuation">{</span
+                  ><span class="variable">increment</span
+                  ><span class="punctuation">}</span>
+                  <span class="tag">/&gt;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">19</span>
+                  <span class="tag">&lt;Button</span>
+                  <span class="attr">title</span
+                  ><span class="punctuation">=</span
+                  ><span class="string">&#34;Giảm&#34;</span>
+                  <span class="attr">onPress</span
+                  ><span class="punctuation">=</span
+                  ><span class="punctuation">{</span
+                  ><span class="variable">decrement</span
+                  ><span class="punctuation">}</span>
+                  <span class="tag">/&gt;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">20</span>
+                  <span class="tag">&lt;/View&gt;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">21</span>
+                  <span class="punctuation">)</span
+                  ><span class="punctuation">;</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-number">22</span>
+                  <span class="punctuation">}</span>
+                </div>
+              </div>
+            </div>
+            <!-- Explanation -->
+            <div class="w-2/5 ml-6 flex flex-col">
+              <div class="state-example p-4 mb-4">
+                <div class="flex items-center mb-2">
+                  <i class="fas fa-lightbulb text-yellow-300 mr-2"></i>
+                  <h3 class="text-xl font-semibold text-white">Giải thích</h3>
+                </div>
+                <ul class="text-white space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                    <span
+                      ><span class="font-semibold"
+                        >create(set =&gt; ({...}))</span
+                      >: Hàm tạo store, nhận vào một factory function</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                    <span
+                      ><span class="font-semibold"
+                        >set(state =&gt; ({ count: state.count + 1 }))</span
+                      >: Cập nhật trạng thái dựa trên trạng thái trước</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                    <span
+                      ><span class="font-semibold">useCounterStore()</span>:
+                      Hook để truy cập store</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="state-example p-4">
+                <div class="flex items-center mb-2">
+                  <i class="fas fa-star text-yellow-300 mr-2"></i>
+                  <h3 class="text-xl font-semibold text-white">Ưu điểm</h3>
+                </div>
+                <ul class="text-white space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-thumbs-up text-blue-400 mt-1 mr-2"></i>
+                    <span>Đơn giản, dễ học và dễ sử dụng</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-thumbs-up text-blue-400 mt-1 mr-2"></i>
+                    <span>Hiệu năng tốt, ít re-render không cần thiết</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-thumbs-up text-blue-400 mt-1 mr-2"></i>
+                    <span>Không cần boilerplate như Redux</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">12/22</div>
+      </div>
+    </div>
+  </body>
+</html>

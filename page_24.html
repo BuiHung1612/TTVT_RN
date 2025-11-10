@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OTA Update — React Native</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+        /* Forced height for presentation viewports */
+        display: flex;
+        flex-direction: column;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #37306a 0%, #9d174d 100%);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .node {
+        padding: 16px 20px;
+        border-radius: 12px;
+        color: #fff;
+        min-width: 180px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s;
+      }
+      .node:hover {
+        transform: translateY(-3px);
+      }
+      .arrow {
+        width: 50px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 99px;
+        position: relative;
+        margin: 0 16px;
+      }
+      .arrow::after {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: -7px;
+        border-left: 12px solid rgba(255, 255, 255, 0.8);
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+      }
+      .code {
+        background: rgba(0, 0, 0, 0.55);
+        padding: 16px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 14px; /* Tăng kích thước code */
+        white-space: pre-wrap;
+      }
+      .main-content {
+        flex-grow: 1;
+        padding: 24px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slide gradient-bg text-white">
+      <div class="py-6 px-12 shadow-md">
+        <div class="px-6">
+          <h1 class="text-4xl font-extrabold tracking-tight">
+            🚀 OTA Update trong React Native
+          </h1>
+          <p class="opacity-90 mt-2 text-xl">
+            Cập nhật JavaScript & assets trực tiếp mà không cần chờ duyệt Store.
+          </p>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="w-full flex flex-col items-center">
+          <div class="font-bold mb-6 text-2xl">
+            ⚙️ Cơ chế hoạt động (The Flow)
+          </div>
+          <div
+            class="flex flex-wrap items-center justify-center gap-4 max-w-full"
+          >
+            <div class="node glass">1. Dev Build Bundle</div>
+            <div class="arrow"></div>
+            <div class="node glass">2. Upload lên Server</div>
+            <div class="arrow"></div>
+            <div class="node glass">3. App Kiểm tra Bản mới</div>
+            <div class="arrow"></div>
+            <div class="node glass">4. Tải về & Áp dụng</div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col lg:flex-row items-start justify-center gap-8 mt-10 w-full max-w-screen-2xl mx-auto"
+        >
+          <div class="w-full lg:w-1/2">
+            <div class="glass p-6 rounded-xl w-full h-full">
+              <div class="font-bold mb-4 text-2xl text-center">
+                🔥 Lợi ích cốt lõi
+              </div>
+              <ul class="space-y-3 text-lg list-none p-0">
+                <li class="flex items-center">
+                  <span class="text-red-300 mr-3 text-2xl">⚡</span>
+                  Tốc độ (Hotfix): Phát hành bản sửa lỗi khẩn cấp chỉ trong vài
+                  phút.
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-300 mr-3 text-2xl">🎯</span>
+                  Linh hoạt: Bỏ qua quy trình kiểm duyệt Store rườm rà.
+                </li>
+                <li class="flex items-center">
+                  <span class="text-yellow-300 mr-3 text-2xl">🔄</span>
+                  DevOps: Triển khai A/B Testing và rollback dễ dàng.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-1/2">
+            <div class="glass p-6 rounded-xl mb-6">
+              <div class="font-semibold mb-3 text-xl">
+                ⚡️ Ví dụ nhanh — EAS Update (Expo)
+              </div>
+              <div class="code">
+                // Publish bản cập nhật OTA lên nhánh production eas update
+                --branch production --message "Hotfix: Sửa lỗi hiển thị UI" //
+                Rollback về revision trước (nếu lỗi) eas update:rollback
+                [channel] [revision_id]
+              </div>
+            </div>
+
+            <div
+              class="p-4 text-sm md:text-base opacity-95 leading-relaxed bg-black/30 rounded-xl"
+            >
+              <ul class="list-disc list-inside space-y-1">
+                <li>Giới hạn: OTA chỉ cập nhật JS & assets.</li>
+                <li>
+                  Native Code: Thay đổi module native mới → phải build và submit
+                  lại app (tăng version native).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-gray-800 bg-opacity-50 py-3 px-12 flex justify-between items-center"
+      >
+        <div class="text-white text-sm">Trung tâm viễn thông - DevTalk</div>
+        <div class="text-white text-sm">OTA Update</div>
+      </div>
+    </div>
+  </body>
+</html>
